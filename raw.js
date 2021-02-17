@@ -10,4 +10,5 @@ Object.defineProperties(String.prototype, {
 	lines: { get: function () { return string.lines(this) } },
 	camelCase: { get: function () { return string.toCamelCase(this) } },
 	titleCase: { get: function () { return string.toTitleCase(this) } },
+	date: { get: function () { return new Date(Date.parse(this)) } },
 });
