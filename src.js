@@ -31,16 +31,16 @@ export function removeTags(string) {
 	return string.replace(/<.*?>/g, '')
 }
 
-export function blocks(string) {
+export function blocks(string = "") {
 	return string.split('\r\n\r\n').flatMap(x => x.split('\r\r')).flatMap(x => x.split('\n\n'))
 }
 
-export function lines(string) {
+export function lines(string = "") {
 	return string.split('\r\n').flatMap(x => x.split('\r')).flatMap(x => x.split('\n'))
 }
 
 // https://stackoverflow.com/questions/8493195/how-can-i-parse-a-csv-string-with-javascript-which-contains-comma-in-data
-export function tsv(string) {
+export function tsv(string = "") {
 	return lines(string).map(x => x.split('\t'))
 }
 
