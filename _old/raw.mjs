@@ -1,6 +1,12 @@
 
-
-export function toTitleCase(string) {
+/**
+ * converts a string to titleCase
+ * all letters following a space are converted to uppercase
+ * e.g. The Grey Fox Runs Around The House
+ * naming in accordance to "toUpperCase" "toLowerCase"
+ * @param string 
+ */
+export function toTitleCase(string) { // 
 	return string.split(' ').filter(x => x)
 		.map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
 		.join(' ')
@@ -28,14 +34,17 @@ export function removeTags(string) {
 export function blocks(string) {
 	return string.split('\r\n\r\n').flatMap(x => x.split('\r\r')).flatMap(x => x.split('\n\n'))
 }
+
 export function lines(string) {
 	return string.split('\r\n').flatMap(x => x.split('\r')).flatMap(x => x.split('\n'))
 }
 
 // https://stackoverflow.com/questions/8493195/how-can-i-parse-a-csv-string-with-javascript-which-contains-comma-in-data
 export function tsv(string) {
-	return string.split('\t')
+	return lines(string).map(x => x.split('\t'))
 }
+
+
 export default {
 	toTitleCase, toCamelCase, findGroups, removeTags, blocks, lines, tsv
 }
