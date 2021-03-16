@@ -19,7 +19,16 @@ export function camelCase(string) {
 	// string[0] = string[0].toLowerCase();
 	return string[0].toLowerCase() + string.slice(1);
 }
+export function trim(string, characters = ' ') {
+	let c = '\\' + characters.split('').join('\\')
+	// console.log(c)
+	return string.replace(new RegExp(`^[${c}]+|[${c}]+$`, 'g'), '');
 
+	// for (let char of characters.split(''))
+	// 	string = string.replace(new RegExp(`^\\${char}+|\\${char}+$`, 'g'), '');
+	// string = string.replace(/^\|+|\|+$/g, '');
+	// return string
+}
 export function findGroups(string, regex) {
 	// console.log('find',string,regex)
 	return Array.from(string.matchAll(regex))
