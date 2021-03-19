@@ -7,17 +7,22 @@
  * @param string 
  */
 export function titleCase(string) { // 
-	return string.split(' ').filter(x => x)
-		.map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
-		.join(' ')
+	return string
+		?.split(' ')
+		?.filter(x => x)
+		?.map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+		?.join(' ')
 }
 
 export function camelCase(string) {
 	// console.log('camel1',string,string.replace(/[^a-zäöüß1-9]/gi, ' '))
-	string = titleCase(string.replace(/[^a-zäöüß1-9]/gi, ' ')).replace(/\s/g, '')
+	string = titleCase(string?.replace(/[^a-zäöüß1-9]/gi, ' '))?.replace(/\s/g, '')
 	// console.log('camel1',string)
 	// string[0] = string[0].toLowerCase();
-	return string[0].toLowerCase() + string.slice(1);
+	return string?.[0]?.toLowerCase() + string?.slice(1);
+}
+export function snakeCase(string) {
+	return string?.toLowerCase()?.replace(/[^a-zäöüß1-9]/gi, ' ')?.trim()?.replace(/\s+/g, '_')
 }
 export function trim(string, characters = ' ') {
 	let c = '\\' + characters.split('').join('\\')
@@ -29,7 +34,7 @@ export function trim(string, characters = ' ') {
 	// string = string.replace(/^\|+|\|+$/g, '');
 	// return string
 }
-export function findGroups(string, regex) {
+export function groups(string, regex) {
 	// console.log('find',string,regex)
 	return Array.from(string.matchAll(regex))
 		.map(i => i.slice(1)) // only groups, not full match

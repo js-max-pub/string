@@ -1,9 +1,10 @@
 import * as string from './src.js';
 import test from '../test/raw.js'
 
-
-test.equal('titleCase', 'Crazy Fox Runs Around The House', string.titleCase('cRAzy foX RUNS around the houSe'))
-test.equal('camelCase', 'crazyFoxRunsAroundTheHouse', string.camelCase('cRAzy foX RUNS around the houSe'))
+let testString = 'cRAzy foX RUNS around the  houSe!'
+test.equal('TitleCase', 'Crazy Fox Runs Around The House!', string.titleCase(testString))
+test.equal('camelCase', 'crazyFoxRunsAroundTheHouse', string.camelCase(testString))
+test.equal('snake_case', 'crazy_fox_runs_around_the_house', string.snakeCase(testString))
 test.equal('trim', 'ha|lo', string.trim('|ha|lo||', '|'))
 test.equal('trim', 'mehr,davon', string.trim(',,mehr,davon,,,', ','))
 test.equal('trim', 'Hallo', string.trim('. Hallo, ', ',;. '))
