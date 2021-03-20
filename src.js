@@ -1,3 +1,12 @@
+export function latin(string, replacement = ' ') {
+	return string?.replace(/[^a-z]/gi, replacement)
+}
+
+export function alphaNum(string, replacement = ' ') {
+	return string?.replace(/[^a-zäöüß1-9]/gi, replacement)
+}
+
+
 
 /**
  * converts a string to titleCase
@@ -14,23 +23,16 @@ export function titleCase(string) { //
 		?.join(' ')
 }
 
-export function latin(string) {
-	return string.replace(/[^a-z]/gi, ' ')
-}
-
-export function alphaNum(string) {
-	return string.replace(/[^a-zäöüß1-9]/gi, ' ')
-}
 
 export function camelCase(string) {
 	// console.log('camel1',string,string.replace(/[^a-zäöüß1-9]/gi, ' '))
-	string = titleCase(string?.replace(/[^a-zäöüß1-9]/gi, ' '))?.replace(/\s/g, '')
+	string = titleCase(alphaNum(string))?.replace(/\s/g, '')
 	// console.log('camel1',string)
 	// string[0] = string[0].toLowerCase();
 	return string?.[0]?.toLowerCase() + string?.slice(1);
 }
 export function snakeCase(string) {
-	return string?.toLowerCase()?.replace(/[^a-zäöüß1-9]/gi, ' ')?.trim()?.replace(/\s+/g, '_')
+	return alphaNum(string)?.toLowerCase()?.trim()?.replace(/\s+/g, '_')
 }
 export function trim(string, characters = ' ') {
 	let c = '\\' + characters.split('').join('\\')
