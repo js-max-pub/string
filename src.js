@@ -14,6 +14,14 @@ export function titleCase(string) { //
 		?.join(' ')
 }
 
+export function latin(string) {
+	return string.replace(/[^a-z]/gi, ' ')
+}
+
+export function alphaNum(string) {
+	return string.replace(/[^a-zäöüß1-9]/gi, ' ')
+}
+
 export function camelCase(string) {
 	// console.log('camel1',string,string.replace(/[^a-zäöüß1-9]/gi, ' '))
 	string = titleCase(string?.replace(/[^a-zäöüß1-9]/gi, ' '))?.replace(/\s/g, '')
