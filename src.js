@@ -1,9 +1,14 @@
+
+
 export function latin(string, replacement = ' ') {
 	return string?.replace(/[^a-z]/gi, replacement)
 }
+export function letter(string, replacement = ' ') {
+	return string?.replace(/[^\p{Letter}]/giu, replacement)
+}
 
 export function alphaNum(string, replacement = ' ') {
-	return string?.replace(/[^a-zäöüß1-9]/gi, replacement)
+	return string?.replace(/[^\p{Letter}\p{Number}]/giu, replacement)
 }
 
 
