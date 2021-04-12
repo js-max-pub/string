@@ -1,6 +1,6 @@
-import * as string from './src.js';
-import * as test from '../test/src.js'
-import { extend } from '../object/src.js'
+import * as string from './mod.js';
+import * as test from '../test/mod.js'
+import { extend } from '../object/mod.js'
 
 let testString = 'cRAzy foX RUNS around the  houSe!'
 test.equal('TitleCase', 'Crazy Fox Runs Around The House!', string.titleCase(testString))
