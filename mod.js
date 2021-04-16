@@ -11,7 +11,19 @@ export function alphaNum(string, replacement = ' ') {
 	return string?.replace(/[^\p{Letter}\p{Number}]/giu, replacement)
 }
 
-
+/**
+ * try one encoding after the other
+ * esp. useful for files of unknown encoding
+ * @param {*} bytes 
+ * @param {*} encodings 
+ * @returns 
+ */
+export function decode(bytes, encodings = ['utf8', 'latin1', 'utf16le']) {
+	for (let encoding of encodings)
+		try {
+			return new TextDecoder(encoding, { fatal: true }).decode(bytes)
+		} catch { }
+}
 
 /**
  * converts a string to titleCase
