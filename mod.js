@@ -10,6 +10,9 @@ export function letter(string, replacement = ' ') {
 export function alphaNum(string, replacement = ' ') {
 	return string?.replace(/[^\p{Letter}\p{Number}]/giu, replacement)
 }
+export function printable(string, replacement = '') {
+	return string?.replace(/[^ -~]+/g, replacement)
+}
 
 /**
  * try one encoding after the other
