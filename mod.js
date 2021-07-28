@@ -6,7 +6,9 @@ export function latin(string, replacement = ' ') {
 export function letter(string, replacement = ' ') {
 	return string?.replace(/[^\p{Letter}]/giu, replacement)
 }
-
+export function letters(string) {
+	return groups(string, /(\p{Letter}+)/giu).flat()
+}
 export function alphaNum(string, replacement = ' ') {
 	return string?.replace(/[^\p{Letter}\p{Number}]/giu, replacement)
 }
