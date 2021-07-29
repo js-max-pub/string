@@ -1,4 +1,4 @@
-
+export * from './levenshtein.js'
 
 export function latin(string, replacement = ' ') {
 	return string?.replace(/[^a-z]/gi, replacement)
@@ -94,3 +94,5 @@ export function tsv(string = "") {
 // export default {
 // 	toTitleCase, toCamelCase, findGroups, removeTags, blocks, lines, tsv
 // }
+
+
